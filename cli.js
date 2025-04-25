@@ -162,7 +162,7 @@ async function init() {
 
 			ora.text = 'Code signing DMG';
 			let identity;
-			const {stdout} = await execa('/usr/bin/security', ['find-identity', '-v', '-p', 'codesigning']);
+			const {stdout} = await execa('/usr/bin/security', ['find-identity', '-p', 'codesigning']);
 			if (cli.flags.identity && stdout.includes(`"${cli.flags.identity}"`)) {
 				identity = cli.flags.identity;
 			} else if (!cli.flags.identity && stdout.includes('Developer ID Application:')) {
